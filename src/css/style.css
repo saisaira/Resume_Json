@@ -1,6 +1,5 @@
 .flex{
   display: flex;
-  flex-wrap: wrap;
   align-self: flex-start;
   justify-content: space-around;
   padding: 5px;
@@ -81,41 +80,29 @@ button {
   }
 }
 
-@media only screen and (max-width:900px) {
+@media only screen and (max-width:768px) {
+  .flex{
+    flex-wrap:nowrap;
+  }
   .cardview {
     width: auto;
+    background-color: #2df000;
   }
   #head{
     font-size: 25px;
   }
 
 }
-
-@media only screen and (max-width: 750px) {
-  .cardview{
-    margin-top: 10%;
+@media only screen and (max-width:425px) {
+  .flex{
+    flex-wrap: wrap;
   }
-  #head{
-    font-size: 25px;
-  }
-
-
-}
-
-@media only screen and (min-width: 750px) {
-
   .cardview {
-    display: block;
+    width: auto;
+    background-color: #2df000;
   }
   #head{
-    font-size: 40px;
-  }
-  .container h3{
-    font-size: 15px;
-  }
-  .container button{
-    background-color: #78668;
-    text-decoration-color: #000;
     font-size: 25px;
   }
+
 }

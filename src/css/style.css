@@ -1,7 +1,9 @@
+
 .flex{
   display: flex;
   padding-bottom: 10px;
-  justify-content: space-around;
+  justify-content:space-around;
+
 }
 html{
   background-color: #999;
@@ -31,6 +33,7 @@ html{
     padding: 10px;
     text-align: center;
     border-radius: 5px;
+    border: 2px solid #000;
     background-color: #F4A460;
 }
 .cardview:hover {

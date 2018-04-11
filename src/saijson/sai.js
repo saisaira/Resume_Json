@@ -1,20 +1,48 @@
-(function() {
-  function loadJSON(file, callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.overrideMimeType("application/json");
-    xhr.open("GET", file, true);
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4 && xhr.status == "200") {
-        callback(xhr.responseText);
+// (function() {
+//   function loadJSON(file, callback) {
+//     var xhr = new XMLHttpRequest();
+//     xhr.overrideMimeType("application/json");
+//     xhr.open("GET", file, true);
+//     xhr.onreadystatechange = function() {
+//       if (xhr.readyState === 4 && xhr.status == "200") {
+//         callback(xhr.responseText);
+//       }
+//     }
+//     xhr.send();
+//   }
+//
+//   //usage:
+//   loadJSON("data.json", function(text) {
+//     let data = JSON.parse(text);
+//     //console.log(data);
+//     basic(data.basics);
+//     edu(data.education);
+//     interest(data.interest);
+//     lang(data.Languages);
+//     carrier(data.carrier);
+//     experience(data.experience);
+//     skills(data.technicalskils);
+//     Acheivements(data.Acheivements);
+//     declaration(data.Declaration);
+//   });
+//   //
+//
+function loadJSON(url) {
+  return new Promise((resolve, reject) => {
+    return fetch(url).then(response => {
+      if (response.ok) {
+        resolve(response.json());
+      } else {
+        reject(new Error('error'));
       }
-    }
-    xhr.send();
-  }
-
-  //usage:
-  loadJSON("data.json", function(text) {
-    let data = JSON.parse(text);
-    //console.log(data);
+    })
+  })
+}
+//data calling
+var myPromise = loadJSON("data.json");
+myPromise.then(data => {
+// Here's a list of repos!
+    console.log(data);
     basic(data.basics);
     edu(data.education);
     interest(data.interest);
@@ -24,8 +52,7 @@
     skills(data.technicalskils);
     Acheivements(data.Acheivements);
     declaration(data.Declaration);
-  });
-  //
+});
   // var main = document.createElement("div");
   // main.classList.add("main");
   var main = document.getElementById('main');
@@ -312,7 +339,7 @@
   main.appendChild(left);
 
 
-})();
+// })();
 //
 // // var h1=document.createElement("h1");
 // // h1.setAttribute("id", "name");

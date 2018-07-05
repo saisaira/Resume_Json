@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="src/css/style.css">
-
+    <link rel="manifest" href="manifest.json">
     <header>
       <h1 id="head">Resumes</h1>
     </header>
@@ -23,7 +23,7 @@
         <h3><b>D.Sai Ram</b></h3>
         <p>&#9742; 8978391774</p>
         <p><strong>&#9993;</strong> sairam@gmail.com</p>
-         <p><a href="page21.html">Click here</a></p>
+         <p><a href="page.html">Click here</a></p>
       </div>
     </div>
 
@@ -40,4 +40,13 @@
   </div>
   <a href="page3.html"><button id="new" type="button" target="_blank" name="button">Create New Resume</button></a>
   </body>
+  <script type="text/javascript">
+    if(navigator.serviceWorker.controller){
+      console.log("No need to register serviceWorker, it's already running");
+    } else {
+      navigator.serviceWorker.register("sworker.js", {scope:'./'}).then(reg=>{
+        console.log("serviceWorker is registered successfully for the scope"+reg.scope);
+      })
+    }
+  </script>
 </html>
